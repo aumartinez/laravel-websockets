@@ -41,6 +41,12 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'broadcast' => [
+          'driver' => 'single',
+          'path' => storage_path('logs/broadcast.log'),
+          'level' => 'info',
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),

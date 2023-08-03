@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MessagesApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/messages', [MessagesApiController::class, 'index']);
+Route::post('/messages', [MessagesApiController::class, 'store']);
+Route::get('/messages/{message}', [MessagesApiController::class, 'show']);
+Route::put('/messages/{message}', [MessagesApiController::class, 'update']);
+Route::delete('/messages/{message}', [MessagesApiController::class, 'destroy']);
